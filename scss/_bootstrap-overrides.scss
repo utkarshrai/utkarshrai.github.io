@@ -1,16 +1,254 @@
+// Bootstrap Component Overrides
+
+// Navbar
+.navbar {
+  transition: $transition-base;
+  
+  &.navbar-dark {
+    background-color: $gray-900 !important;
+    
+    .navbar-brand,
+    .nav-link {
+      transition: $transition-fast;
+    }
+  }
+}
+
+// Colors
 .bg-primary {
-  background-color: $primary !important;
+  background-color: $primary-main !important;
+  transition: $transition-base;
+  
+  &:hover {
+    background-color: $primary-dark !important;
+  }
 }
 
 .text-primary {
-  color: $primary !important;
+  color: $primary-main !important;
+  
+  &:hover {
+    color: $primary-dark !important;
+  }
 }
 
+.bg-dark {
+  background-color: $gray-900 !important;
+}
+
+.text-dark {
+  color: $gray-900 !important;
+}
+
+// Links
 a {
-  color: $primary;
+  color: $primary-main;
+  text-decoration: none;
+  transition: $transition-fast;
+  
   &:hover,
   &:focus,
   &:active {
-    color: darken($primary, 15%);
+    color: $primary-dark;
+    text-decoration: none;
+  }
+  
+  &:focus {
+    outline: 2px solid $accent-teal;
+    outline-offset: 2px;
   }
 }
+
+// Buttons
+.btn {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: $border-radius-lg;
+  padding: 0.6rem 1.5rem;
+  transition: $transition-fast;
+  
+  &:focus {
+    box-shadow: 0 0 0 0.25rem rgba($primary-main, 0.25);
+  }
+  
+  &.btn-primary {
+    background: linear-gradient(135deg, $primary-main, $primary-light);
+    border: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba($primary-main, 0.2);
+    
+    &:hover {
+      background: linear-gradient(135deg, $primary-dark, $primary-main);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba($primary-main, 0.35);
+    }
+    
+    &:active {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba($primary-main, 0.2);
+    }
+    
+    &:focus {
+      box-shadow: 0 0 0 0.25rem rgba($primary-main, 0.25);
+    }
+  }
+  
+  &.btn-secondary {
+    background-color: $gray-600;
+    border-color: $gray-600;
+    color: $white;
+    font-weight: 600;
+    
+    &:hover {
+      background: linear-gradient(135deg, $gray-700, $gray-800);
+      border-color: $gray-700;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// Forms
+.form-control {
+  border: 1px solid $gray-300;
+  border-radius: $border-radius;
+  padding: 0.6rem 1rem;
+  transition: $transition-fast;
+  font-size: 1rem;
+  
+  &:focus {
+    border-color: $primary-main;
+    box-shadow: 0 0 0 0.25rem rgba($primary-main, 0.15);
+  }
+  
+  &::placeholder {
+    color: $gray-500;
+    font-style: italic;
+  }
+}
+
+// Cards
+.card {
+  border: none;
+  border-radius: $border-radius-lg;
+  box-shadow: $box-shadow-sm;
+  transition: $transition-base;
+  overflow: hidden;
+  
+  &:hover {
+    box-shadow: $box-shadow-lg;
+    transform: translateY(-4px);
+  }
+  
+  .card-header {
+    background: linear-gradient(135deg, $primary-main, $primary-light);
+    color: $white;
+    border: none;
+    padding: 1.25rem;
+    font-weight: 600;
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+}
+
+// Alerts
+.alert {
+  border: none;
+  border-radius: $border-radius-lg;
+  border-left: 4px solid transparent;
+  padding: 1rem 1.25rem;
+  font-weight: 500;
+  
+  &.alert-primary {
+    background-color: rgba($primary-main, 0.1);
+    border-left-color: $primary-main;
+    color: darken($primary-main, 20%);
+  }
+  
+  &.alert-success {
+    background-color: rgba($success-green, 0.1);
+    border-left-color: $success-green;
+    color: darken($success-green, 20%);
+  }
+  
+  &.alert-danger {
+    background-color: rgba($red, 0.1);
+    border-left-color: $red;
+    color: darken($red, 20%);
+  }
+  
+  &.alert-warning {
+    background-color: rgba($yellow, 0.1);
+    border-left-color: $yellow;
+    color: darken($yellow, 30%);
+  }
+}
+
+// Badges
+.badge {
+  padding: 0.45rem 0.75rem;
+  border-radius: $border-radius;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  
+  &.badge-primary {
+    background-color: $primary-main;
+    color: $white;
+  }
+  
+  &.badge-secondary {
+    background-color: $gray-500;
+    color: $white;
+  }
+}
+
+// Tables
+.table {
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  box-shadow: $box-shadow-sm;
+  
+  thead {
+    background-color: $primary-main;
+    color: $white;
+    
+    th {
+      border: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 1rem 1.25rem;
+    }
+  }
+  
+  tbody {
+    tr {
+      transition: $transition-fast;
+      
+      &:hover {
+        background-color: $gray-50;
+      }
+      
+      td {
+        padding: 0.75rem 1.25rem;
+        border-color: $gray-200;
+      }
+    }
+  }
+}
+
+// Utility Classes
+.container-fluid {
+  padding: 0;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
